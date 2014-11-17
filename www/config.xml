@@ -3,13 +3,13 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "fr.agoralogie.multicollectenvironnementopen"
-        version   = "0.7.0">
+        id        = "fr.agoralogie.multicollectenvironnementpremium"
+        version   = "0.3.0">
 
     <name>MulticollectNature-Open</name>
 
     <description>
-        Multicollect Environnement Open
+        MulticollectNature
     </description>
 
     <author href="http://www.agoralogie.fr" email="philippe.laroche@agoralogie.fr">
