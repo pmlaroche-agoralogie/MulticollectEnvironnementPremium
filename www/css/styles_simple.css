@@ -1,0 +1,136 @@
+@charset "utf-8";
+/* CSS Document */
+
+html,body {
+	font-family:sans-serif;
+	font-size:13px;
+	
+    /* suppression des éventuels styles par défaut */
+	margin:0;
+	padding:0;
+
+    /* on spécifie un repère pour le calcul des hauteurs */
+	width:100%;
+    height:100%;
+	text-align:center;
+}
+body.home{background-color:#a7f58f;}
+form{padding-left:10px;padding-right:10px;}
+div.conteneur {display:table;height:60%;width:100%;}
+body.home div.conteneur {padding-top:20%}
+
+div.contenu {display:table-cell; vertical-align:middle;text-align:center}
+
+
+div.question{font-weight:bold;
+font-size:16px;margin-bottom:20px;background-color: #5bca63;padding: 5px 5px 5px 5px;	
+border-radius:25px; color:#FFFFFF;	margin-left:5%;	margin-right:5%;margin-top:5%}
+body.home div.question{margin-left:15%;	margin-right:15%;margin-top:0;}
+div.question.sans_bottom{margin-bottom:10px;}
+div.bulle_seule {width:282px;height:210px;text-align:center;font-size:25px;margin:auto;padding-top:80px;margin-top:10px;}
+
+.left {float:left;font-size:20px;}
+.left.bulle {background-image:url(../img/bulle_gauche.jpg);background-repeat:no-repeat;width:141px;height:77px;text-align:center;padding-top:28px;font-size:20px;}
+.left.bulle.une_ligne{height:67px;padding-top:38px;}
+.right {float:right;font-size:20px;}
+.right.bulle {background-image:url(../img/bulle_droit.jpg);background-repeat:no-repeat;width:141px;height:77px;text-align:center;padding-top:28px;font-size:20px;}
+.right.bulle.une_ligne{height:67px;padding-top:38px;}
+.clear {clear:both;}
+
+
+div.suite{bottom:10px;width:100%;position: absolute;left:0;}
+div.suite input{width:200px;height:75px;font-weight:bold;font-size:25px;}
+div.suite.retour_accueil input{font-size:20px;}
+div.suite.home input{font-size:16px;}
+
+
+input[type='range'] {-webkit-appearance: none !important;background:red;height:27px;}
+input[type='range']::-webkit-slider-thumb {-webkit-appearance: none !important;background:blue;height:10px;width:10px;}
+#emotion .input_hidden {position: absolute;left: -9999px;}
+#emotion .selected {background-color: #ccc;}
+#emotion label {display: inline-block;cursor: pointer;}
+#emotion label img {padding: 10px;}
+#slider-range,#slider-range2{
+	margin-top:20px;
+	background: -webkit-linear-gradient(left, red , yellow, green); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(right, red , yellow, green); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(right, red , yellow, green); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to right, red , yellow, green); /* Standard syntax */
+}
+#slider-range.plusieurs,#slider-range2.plusieurs{margin-top:10px;}
+
+#slidervalue2{border:none;font-weight:bold;text-align:center;font-size: 24px;}
+#slider-range.heure {background:lightgrey}
+
+div.deux_slider{margin-top:20px;}
+span.infos_slider{font-size:20px;}
+span.infos_slider input{border:0;border:none;font-size:20px;text-align:right;}
+
+/* page principale : home */
+    
+div.titre_journal {
+    font-size:25px;
+    font-weight:normal;
+    margin:0px;
+    padding:0px;
+    text-align:center;
+	background-color: #339966;
+	color:#FFFFFF;
+	border-radius:25px;
+	margin-bottom:20px;
+	margin-left: 15%;
+	margin-right: 15%;
+	position: absolute;
+	top: 5%;
+	width: 70%;
+}
+div.btn_reglages{width:10%;margin: 0 0 0 1%;position: absolute;
+	top: 5%;;right:4%;text-align:left}
+div.btn_reglages a{display:inline-block;width:35px;margin-right:10px;text-align:center;}
+
+#radio_style{text-align:left;width:300px;margin:0 auto 0 auto;}
+
+#radio_style input[type='radio'] {
+
+    /* Hide the input, but have it still be clickable */
+    opacity: 0;
+
+    width: 20px;
+    display:none;
+}
+
+#radio_style input[type='radio'] + label {
+font-size: 20px;
+
+   margin: 0 5%;
+    clear: none;
+
+    /* Left padding makes room for image */
+    padding: 5px 0 0 30px;
+
+    /* Make look clickable because they are */
+    cursor: pointer;
+
+    background: url(../img/radio_off.jpg) left center no-repeat;
+    display: block;
+}
+
+/*
+    Change from unchecked to checked graphic
+*/
+#radio_style input[type='radio']:checked + label {
+    background-image: url(../img/radio_on.jpg);
+}
+
+
+/*body.home .question {display:none;}*/
+body.home .questionnaire {display:none;}
+form[name="myform"] input[type="button"] {width: 200px;height:75px;}
+/*body.home .raz_session input{width: 200px;height:75px;}*/
+body.home .raz_session {display:none;}
+body.home #opensurvey {display:none;}
+#settings .getuser {position: absolute;
+left: 4%;
+top: 5%;
+width: 80%;
+text-align: left;}

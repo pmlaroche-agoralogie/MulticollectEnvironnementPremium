@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<head>
+<meta charset="utf-8" />
+<!-- <meta name="format-detection" content="telephone=no" /> -->
+<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+<!--<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />-->
+<!--<meta name="viewport" content="width=device-width">-->
+<meta name="viewport" content="width=320,initial-scale=1"/>
+<meta name="msapplication-tap-highlight" content="no" />
+
+<title>Collecting</title>
+
+<link rel="stylesheet" type="text/css" href="css/styles_simple.css" />
+<link href="css/ui-lightness/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+
+<script type='text/javascript' src='js/jquery-2.1.1.min.js'></script>
+<script type='text/javascript' src='js/jquery-ui-1.10.4.custom.min.js'></script>
+<script type='text/javascript' src='js/jquery.ui.touch-punch.min.js'></script>
+<script type="text/javascript" src="js/md5.js"></script>
+<script type="text/javascript" src="js/simulation.js"></script>
+<script type="text/javascript" src="js/load_and_read.js"></script>
+<script type="text/javascript" src="js/template_toc.js"></script>
+<script type='text/javascript' src='js/toc.js'></script>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+
+<script type="text/javascript">
+		$(document).ready(function(){
+			isHomeActive = true;
+			if(isMobile)
+				app.initialize();			
+			else
+			{
+				app.onDeviceReady();
+				$('body.home .raz_session').show();
+			}
+		});
+        </script>
+        <!-- code javascript -->
+		<script type="text/javascript"> 
+
+			var onLssLoaded = function(lss,firstTime) {
+				if (debug)
+					alert('onlss');
+			  firstTime = typeof firstTime !== 'undefined' ? firstTime : 0;
+			  questions = lss.getRowsOf("questions");
+			  answers = lss.getRowsOf("answers");
+			  surveys = lss.getRowsOf("surveys");
+			  surveys_languagesettings = lss.getRowsOf("surveys_languagesettings");
+			  //surveys_config = getSurveyConfig();
+			  
+			  var q1 = questions[0];
+			  if(!isMobile)
+			  {
+				  console.log("surveys");
+				  console.log(surveys);
+				  console.log("surveys_languagesettings");
+				  console.log(surveys_languagesettings);
+				  console.log("questions");
+				  console.log(questions);
+				  console.log("reponses");
+				  console.log(answers);
+				  //console.log("surveys_config");
+				  //console.log(surveys_config);
+			  }
+			  //remplit table horaires
+			  //saveSession(firstTime);
+			  saveQuestionnaire(firstTime);
+			};		
+ </script>
+</head>
+
+<body class="home none">
+
+		<!-- bloc init -->
+        <div id='blocinit' class="app">
+          <h1>Apache Cordova</h1>
+          <div id="deviceready" class="blink">
+            <p class="event listening">Connecting to Device</p>
+            <p class="event received">Device is Ready</p>
+          </div>
+        </div>
+        
+		<!--<a href="javascript:;" onClick="begin_acquisition();">Il y a un questionnaire disponible</a></br><a href="javascript:;" onClick="show_settings();">Reglage</a>-->
+
+		<!-- <div style="position:absolute;width:320px;height:480px;border:1px red solid"></div> -->
+		<!-- contenu de la page -->
+        <div class="conteneur">
+          <div class="contenu">
+            <div class="btn_reglages"><a href="javascript:;" onClick="isHomeActive = false;show_settings();"><img src="img/reglages.png" /></a><a href="javascript:;" onClick="isHomeActive = false;show_credits();"><img src="img/question.png" /></a></div>
+            <div class="titre_journal">Journal de bord</div>
+            <div id='home'>
+              <div class="question">Vous n'avez pas de questionnaire à remplir</div>
+           </div>
+           <!--  <div>test photo<br/><br/>
+           <button onclick="app.takephoto();">take</button>
+           <br/><br/>
+           <button onclick="app.choosephoto();">choose</button><br/><br/>
+           <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
+    		<img style="display:none;" id="largeImage" src="" /></div>-->
+            <div id='acquisition' style='display: none;'> 
+            	<span id='question1' font-size: 30pt></span> <span id='answer1' font-size: 25pt></span> <br>Suite
+            </div>
+            <div id='settings' style='display: none;'>
+            	<div class="getuser"><a href="javascript:;" onClick="isHomeActive = false;show_profil();"><img src="img/user.png" /></a></div>
+            	<div class="last"></div>
+              <div class="question">Nouveau questionnaires : </div>
+              <form NAME="myform" ACTION="" METHOD="GET">
+                <INPUT TYPE="text" NAME="inputbox" VALUE="">
+                </br>
+                <INPUT TYPE="button" NAME="button" Value="Télécharger" onClick="downloadNewStudy(this.form, onLssLoaded)">
+              </form>
+              <form id="opensurvey" NAME="myform2" ACTION="" METHOD="GET">
+                <INPUT id="idsurvey" TYPE="text" NAME="inputbox" VALUE="934317">
+                </br>
+                <INPUT id="buttonopensurvey" TYPE="button" NAME="button" Value="Ouvrir" onClick="openStudy(this.form, onLssLoaded)">
+              </form>
+              <div class="suite home">
+                <input type="button" value="Retour Accueil" onClick="isHomeActive = true;app.reload();go_home();">
+              </div>
+              <div class="raz_session home">
+                <input type="button" value="save questionnaire" onClick="openFakeStudy(xmlquotidien, onLssLoaded,1);">
+              </div>
+              <div class="raz_session home">
+                <input type="button" value="RAZ questionnaire" onClick="RazQuestionnaire();">
+              </div>
+               <div class="raz_session home">
+                <input type="button" value="RAZ reponse" onClick="RazReponse();">
+              </div>
+            </div>
+            <div id='credits' style='display: none;'>
+            	<div class="creditstext">
+            	Multicollect-Suivi est une application mobile pour la récolte de données, baséee sur des formulaires réalisés sur  www.multicollect.net. L'application est
+		utilisable par tout scientifique, gratuitement mais dans un cadre contractuel.
+Merci de contacter : <a href="mailto:contact@multicollect.net">contact@multicollect.net</a> si vous êtes intéressé par l'exploitation de l'outil.
+Si vous êtes utilisateur de l'outil et que vous avez des questions, contactez la personne qui vous a proposé de participer à une étude.
+				</div>
+            	<div class="suite home">
+                	<input type="button" value="Retour Accueil" onClick="isHomeActive = true;app.reload();go_home();">
+              	</div>
+            </div>
+             <div id='profil' style='display: none;'>
+            	<div class="profiltext">
+            	Veuillez saisir votre idendifiant unique:
+				</div>
+				<form id="userform" name="userform" action="" method="get">
+                	<input id="userid" type="text" name="userid" value="">
+                	</br>
+               		<input type="button" name="button" value="Enregistrer" onClick="saveUser();">
+              	</form>
+            	<div class="suite home">
+                	<input type="button" value="Retour" onClick="show_settings();">
+              	</div>
+            </div>
+          </div>
+        </div>
+</body>
+</html>

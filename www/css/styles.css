@@ -1,0 +1,161 @@
+@charset "utf-8";
+/* CSS Document */
+
+html,body {
+	font-family:sans-serif;
+	font-size:13px;
+	
+    /* suppression des éventuels styles par défaut */
+	margin:0;
+	padding:0;
+
+    /* on spécifie un repère pour le calcul des hauteurs */
+	width:100%;
+    height:100%;
+	text-align:center;
+}
+body.home{/*background-color:#a7f58f;*/}
+form{padding-left:10px;padding-right:10px;}
+div.conteneur {display:table;height:60%;width:100%;}
+
+div.contenu {/*display:table-cell; vertical-align:middle;*/text-align:center}
+
+/*div.question{font-weight:bold;font-size:16px;margin-bottom:20px;background-color: #5bca63;padding: 5px 5px 5px 5px;	border-radius:25px; color:#FFFFFF;	margin-left:10px;	margin-right:10px;}*/
+div.postit{
+	background-image: url('../img/postit_01.png'), url('../img/postit_03.png');
+background-position: center top, center bottom;
+background-repeat: no-repeat,no-repeat;
+background-size : 100%,100%;
+padding: 10% 0 15%;
+}
+div.question{
+	background-image:  url('../img/postit_02.png');
+background-position: center center;
+background-repeat: repeat-y;
+background-size : 100%;
+background-color : transparent;
+font-size:16px;
+padding: 0 14%;
+}
+div.question p{margin:0;padding:0;}
+div.fille{background:url('../img/fille1.png') top left no-repeat transparent;width:12%;background-size:100%;height:150px;max-width:50px;position:absolute;z-index:10;top:40px;left:5px;}
+div.question.sans_bottom{margin-bottom:10px;}
+div.bulle_seule {background-image:url(../img/bulle_seule.png);background-repeat:no-repeat;width:282px;height:210px;text-align:center;font-size:25px;margin:auto;padding-top:80px;margin-top:10px;}
+
+.left {float:left;font-size:20px;}
+.left.bulle {background-image:url(../img/bulle_gauche.jpg);background-repeat:no-repeat;width:141px;height:77px;text-align:center;padding-top:28px;font-size:20px;}
+.left.bulle.une_ligne{height:67px;padding-top:38px;}
+.right {float:right;font-size:20px;}
+.right.bulle {background-image:url(../img/bulle_droit.jpg);background-repeat:no-repeat;width:141px;height:77px;text-align:center;padding-top:28px;font-size:20px;}
+.right.bulle.une_ligne{height:67px;padding-top:38px;}
+.clear {clear:both;}
+
+
+div.suite{bottom:10px;width:100%;position: absolute;left:0;}
+div.suite input{width:200px;height:65px;font-weight:bold;font-size:25px;}
+div.suite.retour_accueil input{font-size:20px;}
+div.suite.home input{font-size:16px;}
+
+
+input[type='range'] {-webkit-appearance: none !important;background:red;height:27px;}
+input[type='range']::-webkit-slider-thumb {-webkit-appearance: none !important;background:blue;height:10px;width:10px;}
+#emotion .input_hidden {position: absolute;left: -9999px;}
+#emotion .selected {background-color: #ccc;}
+#emotion label {display: inline-block;cursor: pointer;vertical-align: top;}
+#emotion label img {padding: 10px;}
+#slider-range,#slider-range2{
+	margin-top:20px;
+	background: -webkit-linear-gradient(left, red , yellow, green); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(right, red , yellow, green); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(right, red , yellow, green); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to right, red , yellow, green); /* Standard syntax */
+}
+#slider-range.plusieurs,#slider-range2.plusieurs{margin-top:10px;}
+
+#slidervalue2{border:none;font-weight:bold;text-align:center;font-size: 24px;}
+#slider-range.heure {background:lightgrey}
+
+div.deux_slider{margin-top:20px;}
+span.infos_slider{font-size:20px;}
+span.infos_slider input{border:0;border:none;font-size:20px;text-align:right;}
+
+/* page principale : home */
+    
+div.titre_journal {
+   /* font-size:25px;
+    font-weight:normal;
+    margin:0px;
+    padding:0px;
+    text-align:center;
+	background-color: #339966;
+	color:#FFFFFF;
+	border-radius:25px;
+	margin-bottom:20px;
+	margin-left:5%;
+	margin-right:5%;*/
+}
+div.btn_reglages{text-align:center;/*width:98%;*/margin: 10px 0 0 0;position:absolute;top:50px;right:0;z-index:10;}
+
+#radio_style{text-align:left;width:300px;margin:0 auto 0 auto;display: block;}
+#radio_style p{border-top:1px solid lightgrey;margin:0;padding: 5px 0;}
+#radio_style p:first-child{border-top:none}
+
+#radio_style input[type='radio'] {
+
+    /* Hide the input, but have it still be clickable */
+    opacity: 0;
+
+    width: 20px;
+}
+
+#radio_style input[type='radio'] + label {
+font-size: 20px;
+
+    margin: 0;
+    clear: none;
+
+    /* Left padding makes room for image */
+    padding: 5px 0 0 30px;
+
+    /* Make look clickable because they are */
+    cursor: pointer;
+
+    background: url(../img/radio_off.jpg) left center no-repeat;
+}
+
+/*
+    Change from unchecked to checked graphic
+*/
+#radio_style input[type='radio']:checked + label {
+    background-image: url(../img/radio_on.jpg);
+}
+
+
+/*body.home .question {display:none;}*/
+body.home .questionnaire {display:none;}
+form[name="myform"] input[type="text"] {width: 200px;height:65px;font-size: 30px;font-weight:bold;text-align:center}
+#userform input[type="text"] {width: 200px;height:65px;font-size: 30px;font-weight:bold;text-align:center}
+form[name="myform"] input[type="button"] {width: 200px;height:65px;font-size: 16px;font-weight:bold}
+#userform input[type="button"] {width: 200px;height:65px;font-size: 16px;font-weight:bold}
+body.home .raz_session input{width: 200px;height:45px;}
+body.home .raz_session {display:none;}
+body.home #opensurvey {display:none;}
+
+/*OCD*/
+
+.spirale {background:url('../img/spirale.png') top left repeat-x lightgrey;padding: 40px 20px 4px;position:relative;z-index:1;margin-bottom:40px}
+div.titre_journal{background:url('../img/spirale.png') top left repeat-x lightgrey;padding: 40px 20px 4px;position:relative;z-index:1;color:grey;height:40px;
+background-color:lightgrey;font-size:30px;padding-top:60px;position:relative;z-index:1;}
+body.home .question{background:url('../img/bulle_home.png') top center no-repeat transparent;background-size:65%;height:180px;margin-top: 3%;padding:12% 24%;font-size:18px;}
+body.home  #settings .question{background:none;height:auto;padding: 0px 50px;margin-top:5px;}
+form.time {padding:0 10%;}
+.merci{background:url('../img/bgfin.png') top center no-repeat transparent;background-size:100%;padding-top: 120px;position:relative}
+.merci .fille{background:url('../img/fille1.png') top center no-repeat transparent;background-size:100%;position: absolute;top: 300px;left: 20px;}
+.none #home{background:url('../img/bgrien.png') bottom center no-repeat transparent;background-size:100%;padding-bottom:40%}
+.delete{background:url('../img/delete.png') center center no-repeat transparent; width:16px;height:16px;display: inline-block;cursor:pointer;border:none;}
+.btn_reglages{text-align:center}
+#credits .creditstext{font-size:16px;padding:40px 20px;}
+.home .fille{position:absolute;top:-160px;left:20px;width:45px;}
+
+#settings .getuser {position:absolute; left:0;top:110px;margin-left:2px;}
+#profil .profiltext {margin:10px;}
