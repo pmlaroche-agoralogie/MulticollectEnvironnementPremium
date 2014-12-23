@@ -611,7 +611,7 @@ function getPositionGps()
 		          'Speed: '             + position.coords.speed             + '\n' +
 		          'Timestamp: '         + position.timestamp                + '\n');
 			delta= (Math.random() - 0.5)/100 ;
-			gps = "latitudefloue:"+position.coords.latitude + delta +",longitudefloue:"+position.coords.longitude +delta+",latitude:"+position.coords.latitude +",longitude:"+position.coords.longitude +",altitude:"+position.coords.altitude+",accuracy:"+position.coords.accuracy+",altitudeAccuracy:"+position.coords.altitudeAccuracy+",heading:"+position.coords.heading+",speed:"+position.coords.speed+",timestamp:"+position.timestamp;
+			gps = "latitudefloue:"+ (position.coords.latitude + delta) +",longitudefloue:"+(position.coords.longitude +delta)+",latitude:"+position.coords.latitude +",longitude:"+position.coords.longitude +",altitude:"+position.coords.altitude+",accuracy:"+position.coords.accuracy+",altitudeAccuracy:"+position.coords.altitudeAccuracy+",heading:"+position.coords.heading+",speed:"+position.coords.speed+",timestamp:"+position.timestamp;
 			if(debug)alert(gps);
 		};
 		function onError(error) {
