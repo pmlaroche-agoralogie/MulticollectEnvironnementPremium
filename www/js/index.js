@@ -165,7 +165,7 @@ onDeviceReady: function() {
         var xhReq = new XMLHttpRequest();
       
        // var urldata = "http://openrad.agoralogie.fr/post.php?mesure=123"+123.innerHTML+"&lat="+lastlat+"&long="+lastlong;
-        var urldata = "http://mcp.ocd-dbs-france.org/lss/lss_934317";
+        var urldata = "http://limesurvey.multicollect.net/lss/lss_934317";
         
         xhReq.open("GET", urldata, false);
         xhReq.send(null);
@@ -369,7 +369,7 @@ function sendReponsesOld()
                         	if (debug)
                         		alert("essai envoi"+JSON.stringify(aReponses));
                         	xhr_object = new XMLHttpRequest(); 
-                        	xhr_object.open("GET", "http://mcp.ocd-dbs-france.org/mobile/mobilerpc.php?answer="+JSON.stringify(aReponses), false); 
+                        	xhr_object.open("GET", "http://limesurvey.multicollect.net/mobile/mobilerpc.php?answer="+JSON.stringify(aReponses), false); 
                         	xhr_object.send(null); 
                         	console.log("send rep");
                         	console.log(xhr_object);
@@ -460,7 +460,7 @@ function saveUser(){
 			else
 				var deviceID = "monDeviceUid";
 			xhr_object = new XMLHttpRequest(); 
-	    	xhr_object.open("GET", "http://mcp.ocd-dbs-france.org/mobile/save_user.php?duid="+deviceID+"&id="+encodeURI($('#userform #userid').val()), false); 
+	    	xhr_object.open("GET", "http://limesurvey.multicollect.net/mobile/save_user.php?duid="+deviceID+"&id="+encodeURI($('#userform #userid').val()), false); 
 	    	xhr_object.send(); 
 	    	console.log("send user");
 	    	console.log(xhr_object);
@@ -562,7 +562,7 @@ function sendReponses()
                         	if (debug)
                         		alert("essai envoi"+JSON.stringify(aReponses));
                         	xhr_object = new XMLHttpRequest(); 
-                        	xhr_object.open("GET", "http://mcp.ocd-dbs-france.org/mobile/mobilerpc.php?answer="+JSON.stringify(aReponses), false); 
+                        	xhr_object.open("GET", "http://limesurvey.multicollect.net/mobile/mobilerpc.php?answer="+JSON.stringify(aReponses), false); 
                         	xhr_object.send(null); 
                         	console.log("send rep");
                         	console.log(xhr_object);

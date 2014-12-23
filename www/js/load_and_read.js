@@ -126,7 +126,7 @@ LSSForm.prototype = {
 
 function downloadNewStudy (form,callback) {
     var studyNumber = form.inputbox.value;
-    var urldata = "http://mcp.ocd-dbs-france.org/lss/lss_"+studyNumber;
+    var urldata = "http://limesurvey.multicollect.net/lss/lss_"+studyNumber;
     
     // http://cordova.apache.org/docs/en/3.0.0/cordova_file_file.md.html
     window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, 
